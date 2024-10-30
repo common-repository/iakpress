@@ -1,0 +1,21 @@
+<div><style>*,::after,::before{box-sizing:border-box}.dev .dv{border:1px solid red;min-height:50px}#wpbody-content{padding-bottom:0!important}#wpfooter,.update-nag{display:none!important}#wpcontent{height:100%;padding-left:0}.card{position:relative;margin-top:20px;padding:unset;min-width:unset;max-width:unset;border:1px solid #e5e5e5;border:1px solid rgba(0,0,0,.125)}a:focus{box-shadow:unset}.wp-core-ui select{max-width:unset}</style><div><div id="{{dom_element_id}}" post-config="{{ formConfig|json_encode }}" post-data="{{formData|json_encode}}"></div></div><script type="text/javascript">var  iakpress_module_url = "{{iakpress_module_url}}";
+        __webpack_public_path__  = "{{iakpress_module_url}}";
+        iakAddLoadEvent(function() {
+            
+            iak_module_name = "{{module_name}}";
+
+            window.{{front_bundle_name}}.renderForm({
+            post_type: "{{post_type}}",
+            is_pro_version: "{{is_pro_version}}",
+            dom_element_id: "{{dom_element_id}}",
+            iak_module_name: "{{module_name}}",
+            form_type: {{form_type}},
+            is_archive: "{{is_archive}}"
+          });
+        })
+
+        var wpContentElem = document.getElementById('wpcontent');
+        if (wpContentElem) {
+          document.body.classList.add('folded');
+          document.getElementById('wpcontent').style.paddingLeft="0";
+        }</script></div><script src="{{iakpress_module_url}}/static/js/runtime-main.ecaab61e.js"></script><script src="{{iakpress_module_url}}/static/js/main.fba1bd64.chunk.js"></script>

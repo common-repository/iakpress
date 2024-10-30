@@ -1,0 +1,29 @@
+{#
+
+    /*
+     * This file is part of Joosorol package.
+     * 
+     * (c) Joosorol <joosorol@gmail.com>
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+    
+#}
+
+<div>
+    <div
+        id="iakpost_{{formConfig.id}}" 
+        post-config="{{ formConfig|json_encode }}"
+        theme="{{ theme|json_encode }}"
+        >
+    </div>
+    <script type="text/javascript">
+      iakAddLoadEvent(function() {
+          window.iakpress.renderForm({
+            post_type: "{{post_type}}",
+            dom_element_id: "iakpost_{{formConfig.id}}"
+        });
+      })
+    </script>
+</div>
+

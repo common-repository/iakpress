@@ -1,0 +1,124 @@
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Other files and folders
+.settings/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
+resources/src/assets/scss/toto.js
+/public/js/*map
+/public/js/iakfactoryfree.bundle777.js
+
+# Cache and logs (Symfony2)
+/app/cache/*
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+
+# Email spool folder
+/app/spool/*
+
+# Cache, session files and logs (Symfony3)
+/var/cache/*
+/var/logs/*
+/var/sessions/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+!var/sessions/.gitkeep
+
+# Parameters
+/app/config/parameters.yml
+/app/config/parameters.ini
+
+# Managed by Composer
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/symfony_requirements
+
+# Assets and user uploads
+/web/bundles/
+/web/uploads/
+
+# PHPUnit
+/app/phpunit.xml
+/phpunit.xml
+
+# Build data
+/build/
+
+# Composer PHAR
+/composer.phar
+
+# Backup entities generated with doctrine:generate:entities command
+**/Entity/*~
+
+# Embedded web-server pid file
+/.web-server-pid
+
+
+###> symfony/framework-bundle ###
+/.env
+/public/bundles/
+/var/
+
+
+#/vendor/
+/vendor/psr/container/
+/vendor/symfony/browser-kit
+/vendor/symfony/css-selector
+/vendor/symfony/dotenv
+/vendor/symfony/maker-bundle
+/vendor/symfony/phpunit-bridge
+/vendor/symfony/profiler-pack
+/vendor/symfony/web-server-bundle
+/vendor/nikic/
+/vendor/symfony/dom-crawler/
+/vendor/symfony/process/
+/vendor/symfony/stopwatch/
+/vendor/symfony/web-profiler-bundle/
+/vendor/symfony/dependency-injection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar
+/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar
+
+/vendor/**/Tests/**
+
+/tests              export-ignore
+/phpunit.xml        export-ignore
+
+/vendor/psr/container
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
+public/css/images/iakpress/kupdf.com_software-architecture-interview-questions.pdf
+public/js/iakcpt.bundle.js
+public/js/iakmultistepform.bundle.js
+public/js/iakquizform.bundle.js
+public/js/iakmultistepform.bundle.js
+public/js/iakpresspro.bundle.js
+public/js/iakproductgallery.bundle.js
+public/js/iakquizform.bundle.js
+public/js/iakserver.bundle.js
+public/js/iakserverfront.bundle.js
+public/js/iakstore.bundle.js
+public/js/iaktaxonomies.bundle.js
+public/js/iakmultistepform.bundle.js
+*.map

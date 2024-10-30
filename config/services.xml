@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- Data resolvers -->
+        <service id="liip_imagine.cache.resolver.prototype.web_path" class="\App\Joosorol\Imagine\RemoteCacheResolver"  public="true" abstract="true">
+            <argument type="service" id="filesystem" />
+            <argument type="service" id="router.request_context" />
+            <argument><!-- will be injected by WebPathResolverFactory --></argument>
+            <argument><!-- will be injected by WebPathResolverFactory --></argument>
+        </service>
+
+        <!-- Data loaders -->
+
+        <service id="liip_imagine_iak_loader" class="\App\Joosorol\Imagine\MediaLoader">
+            <argument type="service" id="liip_imagine.mime_type_guesser" />
+            <argument type="service" id="liip_imagine.extension_guesser" />
+            <argument type="service" id="app.binary.locator.filesystem" />
+            <tag name="liip_imagine.binary.loader" loader="iak_loader" />
+        </service>
+
+        <service id="app.binary.locator.filesystem" class="Liip\ImagineBundle\Binary\Locator\FileSystemLocator" public="false" shared="false">
+        </service>
+
+        <service id="app.mime_type_guesser" class="Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface">
+            <factory class="Symfony\Component\Mime\MimeTypes" method="getDefault" />
+        </service>
+
+        <service id="app.extension_guesser" class="Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface">
+            <factory class="Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser" method="getInstance" />
+        </service>
+
+        <!--Alias-->
+        <service id="Liip\ImagineBundle\Service\FilterService" alias="liip_imagine.service.filter"/>
+        <service id="Liip\ImagineBundle\Imagine\Data\DataManager" alias="liip_imagine.data.manager"/>
+        <service id="Liip\ImagineBundle\Imagine\Cache\SignerInterface" alias="liip_imagine.cache.signer"/>
+        <service id="Liip\ImagineBundle\Imagine\Filter\FilterConfiguration" alias="liip_imagine.controller.config"/>
+
+        <!-- Controller -->
+
+        <service id="App\Joosorol\IAKPress\Controller\MediaController" public="true">
+            <argument type="service" id="liip_imagine.service.filter" />
+            <argument type="service" id="liip_imagine.data.manager" />
+            <argument type="service" id="liip_imagine.cache.signer" />
+            <argument type="service" id="liip_imagine.controller.config" />
+        </service>
+
+        <!-- Image Filter -->
+        <service id="iak.image.filter" class="App\Joosorol\Imagine\ImageFilter" public="true">
+            <argument type="service" id="liip_imagine.service.filter" />
+        </service>
+    </services>
+</container>

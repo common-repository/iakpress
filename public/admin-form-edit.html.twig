@@ -1,0 +1,109 @@
+{#
+
+    /*
+     * This file is part of Joosorol package.
+     * 
+     * (c) Joosorol <joosorol@gmail.com>
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+    
+#}
+
+<div>
+ <style type="text/css">
+    .dev .dv {
+    border: 1px solid red;
+            min-height: 50px;
+    }
+    #wpbody-content {
+      padding-bottom: 0 !important;
+    }
+    .update-nag,
+    #wpfooter {
+      display: none !important;
+    }
+    #wpcontent {
+      height: 100%;
+      padding-left: 0px;
+    }
+    .card {
+      position: relative;
+      margin-top: 20px;
+      padding: unset;
+      min-width: unset;
+      max-width: unset;
+      border: 1px solid #e5e5e5;
+      border: 1px solid rgba(0,0,0,.125);
+      /* background: #fff; */
+    }
+
+    a:focus {
+      box-shadow: unset;
+    }
+    .wp-admin select {
+      height: unset;
+      padding: unset;
+    }
+
+    input[id="title"] {
+       pointer-events: none;
+       color: #D3D3D3	;
+    }
+
+    .wp-core-ui select {
+      max-width: unset
+    }
+
+    @media (min-height: 800px) {
+        .iakpress-editor {
+            overflow-y: scroll;
+            height: 55vh;
+            overflow-x: hidden;
+        }
+
+        .choicegroup-editor {
+            overflow-y: scroll;
+            height: 43vh;
+            overflow-x: hidden;
+        }
+
+        .iakpress-preview {
+            overflow-y: scroll;
+            height: 68vh;
+        }
+
+        .iakpress-entries {
+            overflow-y: scroll;
+            height: 70vh;
+        }
+    }
+
+  </style>
+
+    <div>
+        {% if formConfig.post.css_url%}
+           <style type="text/css">@import url({{formConfig.post.css_url}});</style>
+        {% endif %}
+
+         <div class="iakpress-wrapper">
+              <div class="iak-body">
+                   <div id="iakpost_edit" post-config="{{ formConfig|json_encode }}"></div>
+              </div>
+        </div>
+       
+        <script type="text/javascript">
+              iakAddLoadEvent(function() {
+                 window.iakpress.renderEditPost({
+                  post_type: "{{post_type}}",
+                  is_pro_version: "{{is_pro_version}}",
+                  dom_element_id: "iakpost_edit"
+                });
+              })
+
+              document.body.classList.add('folded');
+              document.getElementById('wpcontent').style.paddingLeft="0";
+        </script>
+    </div>
+</div>
+

@@ -1,0 +1,63 @@
+{#
+
+    /*
+     * This file is part of Joosorol package.
+     * 
+     * (c) Joosorol <joosorol@gmail.com>
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+    
+#}
+
+<div>
+ <style type="text/css">
+    .dev .dv {
+    border: 1px solid red;
+            min-height: 50px;
+    }
+    #wpbody-content {
+      padding-bottom: 0 !important;
+    }
+    .update-nag,
+    #wpfooter {
+      display: none !important;
+    }
+    #wpcontent {
+      height: 100%;
+      padding-left: 0px;
+    }
+    .card {
+      position: relative;
+      margin-top: 20px;
+      padding: unset;
+      min-width: unset;
+      max-width: unset;
+      border: 1px solid #e5e5e5;
+      border: 1px solid rgba(0,0,0,.125);
+      /* background: #fff; */
+    }
+
+
+    a:focus {
+      box-shadow: unset;
+    }
+    .wp-admin select {
+      height: unset;
+      padding: unset;
+    }
+
+	.site-content {
+		padding:  unset;
+	}
+
+  </style>
+
+    <div>
+             <div class="iak-body">
+                <div id="iakpress_root" post-config="{{ formConfig|json_encode }}"></div>
+              </div>      
+           </div>
+    </div>
+</div>
+

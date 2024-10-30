@@ -1,0 +1,13 @@
+ {% if authUrl %}
+    <a href="{{authUrl}}"><img src="google.png" title="Sign-in with Google" /></a>
+ {% else %}
+    <form method="POST" action="" name="htmlmail">
+        <label for="email">Email</label>
+        <input type="email" required name="to">
+        <label for="subject">Subject</label>
+        <input type="text"  required name="subject">
+        <label for="message">Message</label>
+        <textarea name="message" required></textarea>
+        <a href="#" onclick="document.forms.htmlmail.submit();return false;">Send Mail</a>
+    </form>
+{% endif %}

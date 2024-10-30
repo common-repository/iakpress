@@ -1,0 +1,27 @@
+liip_imagine:
+    webp:
+        generate: true
+
+    data_loader: iak_loader
+    
+    resolvers:
+        default:
+            web_path:
+                web_root: '%iak_data_dir%'
+                cache_prefix: iakpress/media/cache
+    loaders:
+        default:
+            filesystem:
+                data_root: '%iak_data_dir%'
+
+    filter_sets:
+
+        # name our filter set "iakthumbnail"
+        iakthumbnail:
+            filters:
+                thumbnail: { size: [200, 200], mode: outbound}
+
+         # name our filter set "iakprodimg"
+        iakprodimg:
+            filters:
+                thumbnail: { size: [600, 799], mode: outbound}

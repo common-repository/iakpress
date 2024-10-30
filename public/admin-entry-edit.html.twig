@@ -1,0 +1,69 @@
+{#
+
+    /*
+     * This file is part of Joosorol package.
+     * 
+     * (c) Joosorol <joosorol@gmail.com>
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     */
+    
+#}
+
+<div>
+ <style type="text/css">
+    .dev .dv {
+    border: 1px solid red;
+            min-height: 50px;
+    }
+    #wpbody-content {
+      padding-bottom: 0 !important;
+    }
+    .update-nag,
+    #wpfooter {
+      display: none !important;
+    }
+    #wpcontent {
+      height: 100%;
+      padding-left: 0px;
+    }
+    .card {
+      position: relative;
+      margin-top: 20px;
+      padding: unset;
+      min-width: unset;
+      max-width: unset;
+      border: 1px solid #e5e5e5;
+      border: 1px solid rgba(0,0,0,.125);
+      /* background: #fff; */
+    }
+    a:focus {
+      box-shadow: unset;
+    }
+
+  </style>
+    <div class="iak-body">
+        <div id="iapost_entry_data">
+            <input type="hidden" id="{{postValuesElementId}}" name="{{postValuesElementId}}" value="">
+            <input type="hidden" id="{{postErrorsElementId}}" name="{{postErrorsElementId}}" value=""> 
+        </div>
+        <div id="iakpost_cf" post-config="{{ formConfig|json_encode }}" post-data="{{ formData|json_encode }}"></div>
+       
+        <script type="text/javascript">
+              iakAddLoadEvent(function() {
+                 window.iakpress.renderCPTEntryEdit({
+                  post_type: "{{post_type}}",
+                  is_pro_version: "{{is_pro_version}}",
+                  dom_element_id: "iakpost_cf",
+                   onValidationSuccess: (values) => {
+                     jQuery('#{{postValuesElementId}}').val(JSON.stringify(values))
+                     jQuery('#{{postErrorsElementId}}').val('{}')
+                  },
+                  onValidationError: (errors) => {
+                      jQuery('#{{postErrorsElementId}}').val(JSON.stringify(errors))
+                  }
+                });
+              })
+        </script>
+    </div>
+</div>
